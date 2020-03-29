@@ -1,4 +1,5 @@
 # c-sec
+
 Csec Official Website... Sample description text
 About the Team Csec
 1. What year was it created?
@@ -7,8 +8,16 @@ About the Team Csec
 4. Reasons (AIM and Objectives)for the creation of Csec?
 5. First Project?
 
-Members of CSec
+## Members of CSec
 *Respective member with his/her details like the following 
    -Member photograph
    -Member's Academic Qualification
    -Member's Field of Expertise
+
+Csec Official Website.
+
+
+
+
+
+
