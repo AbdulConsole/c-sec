@@ -1,2 +1,7 @@
 # c-sec
-Csec Official Website... Sample description text
+Csec Official Website.
+
+## C-Sec Team
+* AbdulConsole
+
+* 
