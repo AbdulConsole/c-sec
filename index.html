@@ -1,24 +1,155 @@
 <html>
 <head>
-  <title>CSEC | Website</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> 
-</head>
-<body>
-<div class="jumbotron text-center">
-  <h1 class="display-3">Welcome to CSEC Official Website</h1>
-  <img src="https://www.nicepng.com/png/full/152-1526179_website-under-construction-png-graphic-transparent-website-under.png">
-  <p class="lead"><strong>Site under construction please check back later.</strong> for further inquiry on how to join the team. please reach any existing member to do that.</p>
-  <hr>
-  <p>
-    Having trouble? <a href="">Contact us</a>
-  </p>
-  <p class="lead">
-    <a class="btn btn-primary btn-sm" href="https://github.com/AbdulConsole/c-sec" role="button">See Our Github Project</a>
-  </p>
-</div>
+  <style>
+    
+body{
+  min-height: 100vh;
+  padding: 0 10%;
+  background-color: #111111;
+  color: #FFF;
+  font-size: 2em;
+  display: flex;
+  align-items: center;
+}
+.blinking-cursor{
+  pointer-events: none
+  user-select: none
+  animation: blink 1s steps(2, start) infinite
+ }
+  @keyframes blink{
+    to{
+      visibility: hidden
+    }
+  }
+</style>
+  
+  
+  
+  
+  
+  <script>
+    
+/*JS For text*/
+const elementNode = document.getElementById('type-text')
+let text = ''
 
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+function updateNode () {
+  elementNode.innerText = text
+}
+
+function pushCharacter (character) {
+  text += character
+  updateNode()
+}
+
+function popCharacter () {
+  text = text.slice(0, text.length -1)
+  updateNode()
+}
+
+function clearText () {
+  text = ''
+  updateNode()
+}
+
+
+function wait (time) {
+  return new Promise(resolve => {
+    setTimeout(resolve, time)
+  })
+}
+
+function typeCharacter (character) {
+  return new Promise(resolve => {
+    const randomMsInterval = 100 * Math.random()
+    const msInterval = randomMsInterval < 50 ? 10 : randomMsInterval
+    
+    pushCharacter(character)
+    wait(msInterval).then(resolve)
+  })
+}
+
+function removeCharacter () {
+  return new Promise(resolve => {
+    const randomMsInterval = 100 * Math.random()
+    const msInterval = randomMsInterval < 50 ? 10 : randomMsInterval
+    
+    popCharacter()
+    wait(msInterval).then(resolve)
+  })
+}
+
+function typeText (text) {
+  return new Promise(resolve => {
+    function _type (index) {
+      typeCharacter(text[index]).then(() => {
+        if (index + 1 < text.length) _type(index + 1)
+        else resolve()
+      })
+    }
+    _type(0)
+  })
+}
+
+function removeText (amount) {
+  return new Promise(resolve => {
+    function _remove (index) {
+      removeCharacter().then(() => {
+        if (index + 1 < amount) _remove(index + 1)
+        else resolve()
+      })
+    }
+    _remove(0)
+  })
+}
+
+
+// Typing script ⌨
+
+function typeLoop() {
+  typeText('CSEC!')
+    .then(() => wait(2000))
+    .then(() => removeText(5))
+    .then(() => typeText('AbdulConsole'))
+    .then(() => wait(3000))
+    .then(() => removeText(12))
+    
+    .then(() => typeText('DrC063!'))
+    .then(() => wait(2000))
+    .then(() => removeText(7))
+    
+    .then(() => typeText('Fahidah!'))
+    .then(() => wait(2000))
+    .then(() => removeText(8))
+    
+    .then(() => typeText('Dare5555!'))
+    .then(() => wait(2000))
+    .then(() => removeText(9))
+    
+    .then(() => typeText('JustOla!'))
+    .then(() => wait(2000))
+    .then(() => removeText(8))
+    
+    .then(() => typeText('World!'))
+    .then(() => wait(2000))
+    .then(() => removeText(6))
+    
+    .then(typeLoop)
+}
+
+wait(1000).then(() => {
+  clearText()
+  typeText('Hello, ').then(typeLoop)
+})
+
+  </script>
+</head>
+
+<body>
+
+<span id="type-text">...</span>
+<span class="blinking-cursor">_</span>
+
+
 </body>
 </html>
