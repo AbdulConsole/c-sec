@@ -21,11 +21,16 @@ We’re passionate, motivated and strong-minded to make difference. We believe i
 We encourage honesty and fairness in everything we do. We have ethical approach to business. We constantly push boundaries, and having in mind to develop only on the path that favors humanity.
 
 
-### Questions About the Team Csec
+### Frequently Asked Questions About the Team
+
 1. What year was it created?
+      2018
 2. How many members were first constituted as bonafid member?
+
 3. Who's the pioneer of Csec?
+
 4. Reasons (AIM and Objectives)for the creation of Csec?
+
 5. First Project?
 
 ### Members of CSec
